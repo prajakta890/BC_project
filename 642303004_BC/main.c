@@ -10,6 +10,7 @@ number *calculate(number *a, number *b, char op) {
         case '-': return sub(a, b);
         case '*': return mult(a, b);
         case '/': return division(a, b);
+        case '%': return modulus(a, b);
     }
     return a;
 }
@@ -19,6 +20,8 @@ int check_precedence(char op) {
         return 1;
     if (op == '*' || op == '/')
         return 2;
+    if (op == '%')
+        return 3;
     return 0;
 }
 
